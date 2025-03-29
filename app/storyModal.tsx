@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Modal, View, TouchableOpacity, Text, StyleSheet, PanResponder, Dimensions } from "react-native";
+import { Modal, View, TouchableOpacity, Text, StyleSheet, PanResponder, Dimensions, TouchableWithoutFeedback } from "react-native";
 import { Video, ResizeMode, AVPlaybackStatus } from "expo-av";
 import { AntDesign } from "@expo/vector-icons";
+import { ThemedText } from "@/components/ThemedText";
 export const stories =[
     {
         "id": 0,
@@ -121,6 +122,132 @@ export const stories =[
         "isLive": false
     },
 ]
+const users = [
+    {
+      user_id: 0,
+      profile_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
+      stories: [
+        {
+          story_id: 0,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        },
+        {
+          story_id: 1,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        },
+      ],
+    },
+    {
+      user_id: 1,
+      profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+      stories: [
+        {
+          story_id: 0,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        },
+        {
+          story_id: 1,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        },
+      ],
+    },
+    {
+      user_id: 2,
+      profile_url: "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+      stories: [
+        {
+          story_id: 0,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        },
+        {
+            story_id: 1,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        },
+      ],
+    },
+    {
+      user_id: 3,
+      profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+      stories: [
+        {
+          story_id: 0,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        },
+        {
+          story_id: 1,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        },
+        {
+          story_id: 2,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        },
+      ],
+    },
+    {
+        user_id: 4,
+        profile_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
+        stories: [
+          {
+            story_id: 0,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          },
+          {
+            story_id: 1,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          },
+        ],
+      },
+      {
+        user_id: 5,
+        profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+        stories: [
+          {
+            story_id: 0,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          },
+          {
+            story_id: 1,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          },
+        ],
+      },
+      {
+        user_id: 6,
+        profile_url: "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+        stories: [
+          {
+            story_id: 0,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          },
+          {
+              story_id: 1,
+              story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          },
+        ],
+      },
+      {
+        user_id: 7,
+        profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+        stories: [
+          {
+            story_id: 0,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          },
+          {
+            story_id: 1,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          },
+          {
+            story_id: 2,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          },
+          {
+            story_id: 3,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          },
+        ],
+      },
+  ];
 
 interface FullScreenVideoModalProps {
   isVisible: boolean;
@@ -132,16 +259,20 @@ const { width } = Dimensions.get("window");
 
 const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoModalProps) => {
   const videoRef = useRef<Video | null>(null);
-  const [videoIndex, setVideoIndex] = useState(index);
-  console.log("videoIndex", videoIndex, index);
-  const [progress, setProgress] = useState(0);
+  const [userIndex, setUserIndex] = useState(index);
+  const [storyIndex, setStoryIndex] = useState(0);
+  console.log("userIndex", userIndex, index, storyIndex);
+  const [progress, setProgress] = useState<number[]>(() => 
+    users[userIndex]?.stories.map(() => 0) || []
+  );  
   const [duration, setDuration] = useState(1);
   const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (isVisible) {
-      setVideoIndex(index);
-      setProgress(0);
+      setUserIndex(index);
+        setProgress(users[index].stories.map(() => 0)); // Reset progress for the new user
+        setStoryIndex(0); // Reset story index for the new user
     }
   }, [isVisible, index]);
 
@@ -149,22 +280,41 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
     if (videoRef.current) {
       videoRef.current.unloadAsync().then(() => {
         videoRef.current?.loadAsync(
-          { uri: stories[videoIndex].videoUrl },
+          { uri: users[userIndex].stories[0].story_url },
           { shouldPlay: true }
         );
-        setProgress(0); 
+        setProgress(users[index].stories.map(() => 0)); 
       });
     }
-  }, [videoIndex]);
+  }, [userIndex]);
 
   const updateProgress = async () => {
-    if (videoRef.current) {
-      const status = await videoRef.current.getStatusAsync();
-      if (status.isLoaded && status.durationMillis && status.positionMillis) {
-        setDuration(status.durationMillis);
-        setProgress(status.positionMillis / status.durationMillis);
+    if (!videoRef.current) return;
+  
+    const status = await videoRef.current.getStatusAsync();
+    if (status.isLoaded && status.durationMillis && status.positionMillis) {
+      setProgress((prevProgress) => {
+        const newProgress = [...prevProgress];
+  
+        // Calculate progress for the current story
+        const totalDuration = status.durationMillis; // Total duration of the story
+        const storyProgress = totalDuration ? (status.positionMillis / totalDuration) * 100 : 0;
+        
+        newProgress[storyIndex] = storyProgress;
+  
+        return newProgress;
+      });
+  
+      // Move to the next story if the current one is completed
+      if (status.positionMillis >= status.durationMillis - 500) {
+        if (storyIndex < users[userIndex].stories.length - 1) {
+          setStoryIndex((prevIndex) => prevIndex + 1);
+        } else {
+          closeModal(); // Close modal when all stories are done
+        }
       }
     }
+  
     animationRef.current = requestAnimationFrame(updateProgress);
   };
 
@@ -175,70 +325,93 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [isVisible, videoIndex]);
+  }, [isVisible, userIndex]);
 
   const handlePlaybackStatusUpdate = (status: AVPlaybackStatus) => {
     if (!status.isLoaded) return;
     if (status.didJustFinish) {
-      setVideoIndex((prevIndex) => (prevIndex + 1) );
+      setUserIndex((prevIndex) => (prevIndex + 1) );
     }
   };
 
   const panResponder = useRef(
     PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => true,
+        onStartShouldSetPanResponder: () => false, // Do not capture taps
+        onMoveShouldSetPanResponder: (_, gestureState) => {
+          return Math.abs(gestureState.dx) > 10 || Math.abs(gestureState.dy) > 10;
+        },
+        onPanResponderGrant: () => console.log("Touch started"),
       onPanResponderRelease: (_, gesture) => {
         if (gesture.dx < -50) {
-            if(videoIndex===stories.length-1){
-                closeModal()
-            }
-            else{
-                setVideoIndex((prevIndex) => (prevIndex + 1));
-            }
-          
+            console.log("Swiped right - Next story");
+            setUserIndex((prevIndex) => (prevIndex + 1));
+            setStoryIndex(0); // Reset story index for the new user
         } else if (gesture.dx > 50) {
-           if(videoIndex===0){
-            closeModal()
-           }
-           else{
-             setVideoIndex((prevIndex) => (prevIndex - 1 + stories.length));
-           }
+            console.log("Swiped left - Previous story");
+            setUserIndex((prevIndex) => (prevIndex - 1 ));
+            setStoryIndex(0); // Reset story index for the new user
+           
         }
       },
     })
   ).current;
 
+  const handleTap = (event: any) => {
+    console.log("Tapped on video");
+    const { locationX } = event.nativeEvent;
+    if (locationX < width / 2) {
+      // Left tap - Previous story
+       console.log("Left tap - Previous story");
+       setStoryIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    } else {
+      // Right tap - Next story
+      console.log("Right tap - Next story");
+      setStoryIndex((prevIndex) => Math.min(prevIndex + 1, users[userIndex].stories.length - 1));
+    }
+  };
+//   progress[index]
   return (
-    <Modal animationType="slide" onRequestClose={closeModal} transparent={false} visible={isVisible}>
+    <Modal animationType="fade" onRequestClose={closeModal} transparent={false} visible={isVisible} style={styles.modalContainer}>
+        <View style={styles.progressBarContainer}>
+            {users[userIndex].stories.map((_, index) => (
+                <View key={index} style={styles.progressWrapper}>
+                <View style={[styles.progressBar, { width: `${ progress[storyIndex]* 100}%` }]} />
+                </View>
+            ))}
+            </View>
+        <View style={styles.userContainer}>
+            <View  style={{ flexDirection: "row", justifyContent: "flex-start", padding: 10 }}>  
+                <ThemedText>User Id:</ThemedText>
+                <ThemedText>{users[userIndex].user_id}</ThemedText>
+            </View>
+            <TouchableOpacity style={styles.closeButton} onPress={()=>closeModal()}>
+                <AntDesign name="close" size={20} color="black" />
+            </TouchableOpacity>
+      </View>
       <View style={styles.modalContainer} {...panResponder.panHandlers}>
         
         {/* Progress Bar (Now updates continuously) */}
-        <View style={styles.progressBarContainer}>
-          <View style={[styles.progressBar, { width: `${progress * 100}%` }]} />
-        </View>
+        <TouchableWithoutFeedback onPress={handleTap}>
+        <View style={styles.video}>
+        
 
         {/* Fullscreen Video */}
         <Video
-          key={videoIndex}
+          key={userIndex}
           ref={videoRef}
-          source={{ uri: stories[videoIndex]?.videoUrl? stories[videoIndex]?.videoUrl : "" }}
+          source={{ uri: users[userIndex].stories[storyIndex].story_url? users[userIndex].stories[storyIndex].story_url : "" }}
           style={styles.video}
           useNativeControls={false}
-          resizeMode={ResizeMode.CONTAIN}
+          resizeMode={ResizeMode.COVER}
           shouldPlay
           onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
         />
+        </View>
+        </TouchableWithoutFeedback>
       </View>
 
       {/* Close Button */}
-      <View style={styles.closeContainer}>
-        <TouchableOpacity style={styles.closeButton} onPress={()=>closeModal()}>
-          {/* <Text style={styles.closeText}>Close</Text> */}
-            <AntDesign name="close" size={24} color="black" />
-        </TouchableOpacity>
-        
-      </View>
+      
     </Modal>
   );
 };
@@ -253,15 +426,16 @@ const styles = StyleSheet.create({
   video: {
     ...StyleSheet.absoluteFillObject, 
   },
-  closeContainer: {
-    position: "absolute",
-    top: 40,
-    right: 20,
-    zIndex: 10,
+  userContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor:"black",
   },
   closeButton: {
     backgroundColor: "rgba(255,255,255,0.6)",
-    padding: 10,
+    padding: 5,
+    marginRight: 5,
     borderRadius: 5,
   },
   closeText: {
@@ -270,19 +444,27 @@ const styles = StyleSheet.create({
     color: "black",
   },
   progressBarContainer: {
-    position: "absolute",
-    top: 10,
-    left: 10,
-    right: 10,
-    height: 4,
-    backgroundColor: "rgba(255, 255, 255, 0.3)",
-    borderRadius: 2,
-    width: width - 20,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: 3,
+    backgroundColor:"black",
+  },
+   progressWrapper: {
+    flex: 1,
+    height: 3,
+    backgroundColor: "#ccc",
+    marginHorizontal: 2,
   },
   progressBar: {
     height: "100%",
     backgroundColor: "#fff",
     borderRadius: 2,
+  },
+  touchArea: {
+    width: "100%",
+    height: "100%",
   },
 });
 

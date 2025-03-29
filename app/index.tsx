@@ -14,6 +14,17 @@ export interface IVideo {
     subscriber: string;
     isLive: boolean;
   }
+
+  interface Story {
+    story_id: number;
+    story_url: string;
+  }
+  
+  interface User {
+    user_id: number;
+    profile_url: string;
+    stories: Story[];
+  }
   
 export const stories =[
     {
@@ -135,10 +146,136 @@ export const stories =[
     },
 ]
 
+const users = [
+    {
+      user_id: 0,
+      profile_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
+      stories: [
+        {
+          story_id: 0,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        },
+        {
+          story_id: 1,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        },
+      ],
+    },
+    {
+      user_id: 1,
+      profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+      stories: [
+        {
+          story_id: 0,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        },
+        {
+          story_id: 1,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        },
+      ],
+    },
+    {
+      user_id: 2,
+      profile_url: "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+      stories: [
+        {
+          story_id: 0,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        },
+        {
+            story_id: 1,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        },
+      ],
+    },
+    {
+      user_id: 3,
+      profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+      stories: [
+        {
+          story_id: 0,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        },
+        {
+          story_id: 1,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        },
+        {
+          story_id: 2,
+          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        },
+      ],
+    },
+    {
+        user_id: 4,
+        profile_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
+        stories: [
+          {
+            story_id: 0,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          },
+          {
+            story_id: 1,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          },
+        ],
+      },
+      {
+        user_id: 5,
+        profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+        stories: [
+          {
+            story_id: 0,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          },
+          {
+            story_id: 1,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          },
+        ],
+      },
+      {
+        user_id: 6,
+        profile_url: "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+        stories: [
+          {
+            story_id: 0,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          },
+          {
+              story_id: 1,
+              story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          },
+        ],
+      },
+      {
+        user_id: 7,
+        profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+        stories: [
+          {
+            story_id: 0,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          },
+          {
+            story_id: 1,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          },
+          {
+            story_id: 2,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          },
+        ],
+      },
+  ];
+  
+  console.log(users);
+  
+
 
 const StoryList = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
-  const [selectedStory, setSelectedStory] = useState<IVideo|null>(null);
+  const [selectedUser, setSelectedUser] = useState<User|null>(null);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
     const openModal = () => {
@@ -150,9 +287,9 @@ const StoryList = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={stories}
+        data={users}
         horizontal
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.user_id.toString()}
         showsHorizontalScrollIndicator={false}
         snapToAlignment="start"
         decelerationRate="fast"
@@ -162,10 +299,10 @@ const StoryList = () => {
           { useNativeDriver: false }
         )}
         renderItem={({ item }) => (
-          <TouchableOpacity   onPress={()=>{setSelectedStory(item);  // Set the selected story to pass to the modal
+          <TouchableOpacity   onPress={()=>{setSelectedUser(item);  // Set the selected story to pass to the modal
             openModal()}} style={styles.storyContainer}>
             <View style={styles.storyWrapper}>
-              <Image source={{ uri: item.thumbnailUrl }} style={styles.storyImage} />
+              <Image source={{ uri: item.profile_url }} style={styles.storyImage} />
             </View>
           </TouchableOpacity>
         )}
@@ -173,7 +310,7 @@ const StoryList = () => {
       <FullScreenVideoModal
         isVisible={isModalVisible}
         closeModal={closeModal}
-        index={selectedStory ?selectedStory.id: 0} // Pass the index of the selected story
+        index={selectedUser ?selectedUser.user_id: 0} // Pass the index of the selected story
         />
     </View>
   );
