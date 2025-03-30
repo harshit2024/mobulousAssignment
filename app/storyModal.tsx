@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Modal, View, TouchableOpacity, Text, StyleSheet, PanResponder, Dimensions, TouchableWithoutFeedback } from "react-native";
+import { Modal, View, TouchableOpacity, Text, StyleSheet, PanResponder, Dimensions, TouchableWithoutFeedback, Image } from "react-native";
 import { Video, ResizeMode, AVPlaybackStatus } from "expo-av";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, Feather } from "@expo/vector-icons";
 import { ThemedText } from "@/components/ThemedText";
 
 const users = [
     {
       user_id: 0,
+      user_name:"InstaVibeX",
       profile_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
       stories: [
         {
@@ -21,6 +22,7 @@ const users = [
     },
     {
       user_id: 1,
+      user_name:"EchoSnap_10",
       profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
       stories: [
         {
@@ -35,6 +37,7 @@ const users = [
     },
     {
       user_id: 2,
+      user_name:"PixelNomad",
       profile_url: "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
       stories: [
         {
@@ -49,6 +52,7 @@ const users = [
     },
     {
       user_id: 3,
+      user_name:"SkylineClicks",
       profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
       stories: [
         {
@@ -67,6 +71,7 @@ const users = [
     },
     {
         user_id: 4,
+        user_name:"NeonChronicles",
         profile_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
         stories: [
           {
@@ -81,6 +86,7 @@ const users = [
       },
       {
         user_id: 5,
+        user_name:"ViralFusion",
         profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
         stories: [
           {
@@ -95,6 +101,7 @@ const users = [
       },
       {
         user_id: 6,
+        user_name:"SnapTrekker",
         profile_url: "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
         stories: [
           {
@@ -109,6 +116,7 @@ const users = [
       },
       {
         user_id: 7,
+        user_name:"RetroAura_98",
         profile_url: "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
         stories: [
           {
@@ -165,19 +173,27 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
   
   // Update progress for current user and story
   const updateProgressBar = (userIdx: number, storyIdx: number, value: number) => {
-    setUserProgressMap(prev => {
-      const newUserProgress = {...prev};
+    setUserProgressMap((prev) => {
+      const newUserProgress = { ...prev };
+      
       if (!newUserProgress[userIdx]) {
         newUserProgress[userIdx] = new Array(users[userIdx].stories.length).fill(0);
       }
-      
+  
       const updatedProgress = [...newUserProgress[userIdx]];
+  
+      // Ensure previous stories remain 100%
+      for (let i = 0; i < storyIdx; i++) {
+        updatedProgress[i] = 100;
+      }
+  
       updatedProgress[storyIdx] = value;
       newUserProgress[userIdx] = updatedProgress;
-      
+  
       return newUserProgress;
     });
   };
+  
   
   // Mark a story as complete (100%)
   const markStoryComplete = (userIdx: number, storyIdx: number) => {
@@ -228,15 +244,11 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
     }
   }, [userIndex]);
 
-  // When story changes
   useEffect(() => {
-    // Mark previous story as complete when moving to next story
     if (previousStoryIndexRef.current !== storyIndex && previousStoryIndexRef.current < storyIndex) {
       markStoryComplete(userIndex, previousStoryIndexRef.current);
     }
-    
-    previousStoryIndexRef.current = storyIndex;
-    
+    previousStoryIndexRef.current = storyIndex; 
     if (videoRef.current && users[userIndex]?.stories[storyIndex]) {
       videoRef.current.unloadAsync().then(() => {
         videoRef.current?.loadAsync(
@@ -315,9 +327,7 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
   const handleTap = (event: any) => {
     const { locationX } = event.nativeEvent;
     if (locationX < width / 2) {
-      // Left tap - Previous story
       console.log("Left tap - Previous story");
-       
       if(storyIndex === 0) {
         if(userIndex > 0){
           setUserIndex((prevIndex) => (prevIndex - 1));
@@ -331,14 +341,10 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
         setStoryIndex((prevIndex) => Math.max(prevIndex - 1, 0));
       }
     } else {
-      // Right tap - Next story
       console.log("Right tap - Next story");
-      
-      // Mark current story as complete
       markStoryComplete(userIndex, storyIndex);
       
       if(storyIndex === users[userIndex]?.stories.length - 1) {
-        // If it's the last story, go to the next user
         if(userIndex < users.length - 1) {
           setUserIndex((prevIndex) => (prevIndex + 1));
           setStoryIndex(0);
@@ -374,13 +380,16 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
             </View>
         <View style={styles.userContainer}>
             <View style={{ flexDirection: "row", justifyContent: "flex-start", padding: 10 }}>  
-                <ThemedText>User Id:</ThemedText>
-                <ThemedText style={{marginLeft:5}}>{users[userIndex]?.user_id}</ThemedText>
-                <ThemedText style={{marginLeft:5}}>{users[userIndex]?.stories[storyIndex]?.story_id}</ThemedText>
+                <Image source={{ uri: users[userIndex]?.profile_url }} style={styles.storyImage} />
+                <ThemedText style={{marginLeft:10}}>{users[userIndex]?.user_name}</ThemedText>
+                
             </View>
+            <View style={{ flexDirection: "row", justifyContent: "flex-end", alignItems:"center"   }}>  
+            <Feather name="volume-2" size={24} color="white" />
             <TouchableOpacity style={styles.closeButton} onPress={()=>closeModal()}>
                 <AntDesign name="close" size={20} color="black" />
             </TouchableOpacity>
+            </View>
       </View>
       <View style={styles.modalContainer} {...panResponder.panHandlers}>
         
@@ -410,6 +419,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  storyImage: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+  },
   video: {
     ...StyleSheet.absoluteFillObject, 
   },
@@ -423,6 +437,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.6)",
     padding: 5,
     marginRight: 5,
+    marginLeft: 5,
     borderRadius: 5,
   },
   closeText: {
