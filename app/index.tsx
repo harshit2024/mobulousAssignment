@@ -26,138 +26,20 @@ export interface IVideo {
     stories: Story[];
   }
   
-export const stories =[
-    {
-        "id": 0,
-        "title": "Big Buck Bunny",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Vlc Media Player",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 1,
-        "title": "The first Blender Open Movie from 2006",
-        "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
-        "duration": "12:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Blender Inc.",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 2,
-        "title": "For Bigger Escape",
-        "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "T-Series Regional",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-        "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
-        "subscriber": "25254545 Subscribers",
-        "isLive": false
-    },
-    {
-        "id": 3,
-        "title": "Big Buck Bunny",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Vlc Media Player",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 4,
-        "title": "For Bigger Escape",
-        "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "T-Series Regional",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-        "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 5,
-        "title": "The first Blender Open Movie from 2006",
-        "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
-        "duration": "12:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Blender Inc.",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
-        "subscriber": "25254545 Subscribers",
-        "isLive": false
-    },
-    {
-        "id": 6,
-        "title": "Big Buck Bunny",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Vlc Media Player",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 7,
-        "title": "The first Blender Open Movie from 2006",
-        "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
-        "duration": "12:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Blender Inc.",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 8,
-        "title": "For Bigger Escape",
-        "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "T-Series Regional",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-        "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
-        "subscriber": "25254545 Subscribers",
-        "isLive": false
-    },
-]
 
-const users = [
+
+  const users = [
     {
       user_id: 0,
       profile_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
       stories: [
         {
           story_id: 0,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354178/Naruto_Baryon_Mode_-_Centuries_AMV_Edit_rh8myv.mp4",
         },
         {
           story_id: 1,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/hq4j3eoaocfrmucnh3bx.mp4",
         },
       ],
     },
@@ -167,11 +49,11 @@ const users = [
       stories: [
         {
           story_id: 0,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743353811/videoplayback_2_yk9ggv.mp4",
         },
         {
           story_id: 1,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354665/Itachi_s_death_vlskip.mp4",
         },
       ],
     },
@@ -185,7 +67,7 @@ const users = [
         },
         {
             story_id: 1,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354178/Naruto_Baryon_Mode_-_Centuries_AMV_Edit_rh8myv.mp4",
         },
       ],
     },
@@ -195,11 +77,11 @@ const users = [
       stories: [
         {
           story_id: 0,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354942/%E0%A4%86_%E0%A4%B0%E0%A4%B9%E0%A4%BE_%E0%A4%B9%E0%A5%82%E0%A4%81_%E0%A4%97%E0%A5%81%E0%A4%B0%E0%A5%81%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AE_%E0%A4%94%E0%A4%B0_%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80_August_5th_-_Gurugram_and_August_6th_-_Delhi___www.ballimaaraan.com_tghid9.mp4",
         },
         {
           story_id: 1,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743355057/videoplayback_3_gyhrz2.mp4",
         },
         {
           story_id: 2,
@@ -213,11 +95,11 @@ const users = [
         stories: [
           {
             story_id: 0,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743355329/videoplayback_4_wihpdz.mp4",
           },
           {
             story_id: 1,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743355057/videoplayback_3_gyhrz2.mp4",
           },
         ],
       },
@@ -227,11 +109,11 @@ const users = [
         stories: [
           {
             story_id: 0,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/hq4j3eoaocfrmucnh3bx.mp4",
           },
           {
             story_id: 1,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354178/Naruto_Baryon_Mode_-_Centuries_AMV_Edit_rh8myv.mp4",
           },
         ],
       },
@@ -265,13 +147,13 @@ const users = [
             story_id: 2,
             story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
           },
+          {
+            story_id: 3,
+            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          },
         ],
       },
   ];
-  
-  console.log(users);
-  
-
 
 const StoryList = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -299,7 +181,7 @@ const StoryList = () => {
           { useNativeDriver: false }
         )}
         renderItem={({ item }) => (
-          <TouchableOpacity   onPress={()=>{setSelectedUser(item);  // Set the selected story to pass to the modal
+          <TouchableOpacity   onPress={()=>{setSelectedUser(item);  
             openModal()}} style={styles.storyContainer}>
             <View style={styles.storyWrapper}>
               <Image source={{ uri: item.profile_url }} style={styles.storyImage} />
@@ -310,7 +192,7 @@ const StoryList = () => {
       <FullScreenVideoModal
         isVisible={isModalVisible}
         closeModal={closeModal}
-        index={selectedUser ?selectedUser.user_id: 0} // Pass the index of the selected story
+        index={selectedUser ?selectedUser.user_id: 0} 
         />
     </View>
   );

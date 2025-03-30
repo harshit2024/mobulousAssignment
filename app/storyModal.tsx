@@ -3,125 +3,7 @@ import { Modal, View, TouchableOpacity, Text, StyleSheet, PanResponder, Dimensio
 import { Video, ResizeMode, AVPlaybackStatus } from "expo-av";
 import { AntDesign } from "@expo/vector-icons";
 import { ThemedText } from "@/components/ThemedText";
-export const stories =[
-    {
-        "id": 0,
-        "title": "Big Buck Bunny",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Vlc Media Player",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 1,
-        "title": "The first Blender Open Movie from 2006",
-        "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
-        "duration": "12:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Blender Inc.",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 2,
-        "title": "For Bigger Escape",
-        "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "T-Series Regional",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-        "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
-        "subscriber": "25254545 Subscribers",
-        "isLive": false
-    },
-    {
-        "id": 3,
-        "title": "Big Buck Bunny",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Vlc Media Player",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 4,
-        "title": "For Bigger Escape",
-        "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "T-Series Regional",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-        "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 5,
-        "title": "The first Blender Open Movie from 2006",
-        "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
-        "duration": "12:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Blender Inc.",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
-        "subscriber": "25254545 Subscribers",
-        "isLive": false
-    },
-    {
-        "id": 6,
-        "title": "Big Buck Bunny",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Vlc Media Player",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 7,
-        "title": "The first Blender Open Movie from 2006",
-        "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
-        "duration": "12:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "Blender Inc.",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
-        "subscriber": "25254545 Subscribers",
-        "isLive": true
-    },
-    {
-        "id": 8,
-        "title": "For Bigger Escape",
-        "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
-        "duration": "8:18",
-        "uploadTime": "May 9, 2011",
-        "views": "24,969,123",
-        "author": "T-Series Regional",
-        "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-        "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
-        "subscriber": "25254545 Subscribers",
-        "isLive": false
-    },
-]
+
 const users = [
     {
       user_id: 0,
@@ -129,11 +11,11 @@ const users = [
       stories: [
         {
           story_id: 0,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354178/Naruto_Baryon_Mode_-_Centuries_AMV_Edit_rh8myv.mp4",
         },
         {
           story_id: 1,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/hq4j3eoaocfrmucnh3bx.mp4",
         },
       ],
     },
@@ -143,11 +25,11 @@ const users = [
       stories: [
         {
           story_id: 0,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743353811/videoplayback_2_yk9ggv.mp4",
         },
         {
           story_id: 1,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354665/Itachi_s_death_vlskip.mp4",
         },
       ],
     },
@@ -161,7 +43,7 @@ const users = [
         },
         {
             story_id: 1,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354178/Naruto_Baryon_Mode_-_Centuries_AMV_Edit_rh8myv.mp4",
         },
       ],
     },
@@ -171,11 +53,11 @@ const users = [
       stories: [
         {
           story_id: 0,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354942/%E0%A4%86_%E0%A4%B0%E0%A4%B9%E0%A4%BE_%E0%A4%B9%E0%A5%82%E0%A4%81_%E0%A4%97%E0%A5%81%E0%A4%B0%E0%A5%81%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AE_%E0%A4%94%E0%A4%B0_%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80_August_5th_-_Gurugram_and_August_6th_-_Delhi___www.ballimaaraan.com_tghid9.mp4",
         },
         {
           story_id: 1,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743355057/videoplayback_3_gyhrz2.mp4",
         },
         {
           story_id: 2,
@@ -189,11 +71,11 @@ const users = [
         stories: [
           {
             story_id: 0,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743355329/videoplayback_4_wihpdz.mp4",
           },
           {
             story_id: 1,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743355057/videoplayback_3_gyhrz2.mp4",
           },
         ],
       },
@@ -203,11 +85,11 @@ const users = [
         stories: [
           {
             story_id: 0,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/hq4j3eoaocfrmucnh3bx.mp4",
           },
           {
             story_id: 1,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354178/Naruto_Baryon_Mode_-_Centuries_AMV_Edit_rh8myv.mp4",
           },
         ],
       },
@@ -262,75 +144,145 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
   const [userIndex, setUserIndex] = useState(index);
   const [storyIndex, setStoryIndex] = useState(0);
   console.log("userIndex", userIndex, index, storyIndex);
-  const [progress, setProgress] = useState<number[]>(() => 
-    users[userIndex]?.stories.map(() => 0) || []
-  );  
+  
+  // Track progress for each user separately
+  const [userProgressMap, setUserProgressMap] = useState<Record<number, number[]>>({});
+  
   const [duration, setDuration] = useState(1);
   const animationRef = useRef<number | null>(null);
+  const previousUserIndexRef = useRef<number>(index);
+  const previousStoryIndexRef = useRef<number>(0);
 
+  // Initialize progress for a specific user
+  const initializeUserProgress = (userIdx: number) => {
+    if (!users[userIdx]) return;
+    
+    setUserProgressMap(prev => ({
+      ...prev,
+      [userIdx]: new Array(users[userIdx].stories.length).fill(0)
+    }));
+  };
+  
+  // Update progress for current user and story
+  const updateProgressBar = (userIdx: number, storyIdx: number, value: number) => {
+    setUserProgressMap(prev => {
+      const newUserProgress = {...prev};
+      if (!newUserProgress[userIdx]) {
+        newUserProgress[userIdx] = new Array(users[userIdx].stories.length).fill(0);
+      }
+      
+      const updatedProgress = [...newUserProgress[userIdx]];
+      updatedProgress[storyIdx] = value;
+      newUserProgress[userIdx] = updatedProgress;
+      
+      return newUserProgress;
+    });
+  };
+  
+  // Mark a story as complete (100%)
+  const markStoryComplete = (userIdx: number, storyIdx: number) => {
+    updateProgressBar(userIdx, storyIdx, 100);
+  };
+  
+  // Reset progress for a specific user
+  const resetUserProgress = (userIdx: number) => {
+    if (!users[userIdx]) return;
+    
+    setUserProgressMap(prev => ({
+      ...prev,
+      [userIdx]: new Array(users[userIdx].stories.length).fill(0)
+    }));
+  };
+
+  // When modal becomes visible or index changes
   useEffect(() => {
     if (isVisible) {
       setUserIndex(index);
-        setProgress(users[index].stories.map(() => 0)); // Reset progress for the new user
-        setStoryIndex(0); // Reset story index for the new user
+      setStoryIndex(0);
+      previousStoryIndexRef.current = 0;
+      
+      // Initialize progress for the initial user
+      if (!userProgressMap[index]) {
+        initializeUserProgress(index);
+      }
     }
   }, [isVisible, index]);
 
+  // When user changes
   useEffect(() => {
+    if (previousUserIndexRef.current !== userIndex) {
+      // Reset progress for the new user
+      resetUserProgress(userIndex);
+      previousUserIndexRef.current = userIndex;
+      setStoryIndex(0);
+      previousStoryIndexRef.current = 0;
+    }
+    
     if (videoRef.current) {
       videoRef.current.unloadAsync().then(() => {
         videoRef.current?.loadAsync(
-          { uri: users[userIndex].stories[0].story_url },
+          { uri: users[userIndex]?.stories[storyIndex].story_url },
           { shouldPlay: true }
         );
-        setProgress(users[index].stories.map(() => 0)); 
       });
     }
   }, [userIndex]);
 
+  // When story changes
+  useEffect(() => {
+    // Mark previous story as complete when moving to next story
+    if (previousStoryIndexRef.current !== storyIndex && previousStoryIndexRef.current < storyIndex) {
+      markStoryComplete(userIndex, previousStoryIndexRef.current);
+    }
+    
+    previousStoryIndexRef.current = storyIndex;
+    
+    if (videoRef.current && users[userIndex]?.stories[storyIndex]) {
+      videoRef.current.unloadAsync().then(() => {
+        videoRef.current?.loadAsync(
+          { uri: users[userIndex].stories[storyIndex].story_url },
+          { shouldPlay: true }
+        );
+      });
+    }
+  }, [storyIndex]);
+
   const updateProgress = async () => {
-    if (!videoRef.current) return;
+    if (!videoRef.current || !users[userIndex]) return;
   
     const status = await videoRef.current.getStatusAsync();
     if (status.isLoaded && status.durationMillis && status.positionMillis) {
-      setProgress((prevProgress) => {
-        const newProgress = [...prevProgress];
-  
-        // Calculate progress for the current story
-        const totalDuration = status.durationMillis; // Total duration of the story
-        const storyProgress = totalDuration ? (status.positionMillis / totalDuration) * 100 : 0;
-        
-        newProgress[storyIndex] = storyProgress;
-  
-        return newProgress;
-      });
-  
-      // Move to the next story if the current one is completed
-      if (status.positionMillis >= status.durationMillis - 500) {
-        if (storyIndex < users[userIndex].stories.length - 1) {
-          setStoryIndex((prevIndex) => prevIndex + 1);
-        } else {
-          closeModal(); // Close modal when all stories are done
-        }
-      }
+      const progressValue = (status.positionMillis / status.durationMillis) * 100;
+      updateProgressBar(userIndex, storyIndex, progressValue);
     }
   
     animationRef.current = requestAnimationFrame(updateProgress);
   };
-
+  
   useEffect(() => {
     if (isVisible) {
       animationRef.current = requestAnimationFrame(updateProgress);
     }
+    
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [isVisible, userIndex]);
+  }, [isVisible, userIndex, storyIndex]);
 
   const handlePlaybackStatusUpdate = (status: AVPlaybackStatus) => {
     if (!status.isLoaded) return;
     if (status.didJustFinish) {
-      setUserIndex((prevIndex) => (prevIndex + 1) );
+      // Mark the current story as complete
+      markStoryComplete(userIndex, storyIndex);
+      
+      if (storyIndex < users[userIndex]?.stories.length - 1) {
+        setStoryIndex(prevIndex => prevIndex + 1);
+      } else if (userIndex < users.length - 1) {
+        setUserIndex(prevIndex => prevIndex + 1);
+        setStoryIndex(0);
+      } else {
+        closeModal();
+      }
     }
   };
 
@@ -343,46 +295,88 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
         onPanResponderGrant: () => console.log("Touch started"),
       onPanResponderRelease: (_, gesture) => {
         if (gesture.dx < -50) {
-            console.log("Swiped right - Next story");
+          // Mark current story as complete before moving to next user
+          markStoryComplete(userIndex, storyIndex);
+          
+          
             setUserIndex((prevIndex) => (prevIndex + 1));
-            setStoryIndex(0); // Reset story index for the new user
+            setStoryIndex(0);
+          
         } else if (gesture.dx > 50) {
-            console.log("Swiped left - Previous story");
-            setUserIndex((prevIndex) => (prevIndex - 1 ));
-            setStoryIndex(0); // Reset story index for the new user
-           
+          
+            setUserIndex((prevIndex) => (prevIndex - 1));
+            setStoryIndex(0);
+         
         }
       },
     })
   ).current;
 
   const handleTap = (event: any) => {
-    console.log("Tapped on video");
     const { locationX } = event.nativeEvent;
     if (locationX < width / 2) {
       // Left tap - Previous story
-       console.log("Left tap - Previous story");
-       setStoryIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+      console.log("Left tap - Previous story");
+       
+      if(storyIndex === 0) {
+        if(userIndex > 0){
+          setUserIndex((prevIndex) => (prevIndex - 1));
+          setStoryIndex(0);
+        }
+        else{
+          closeModal();
+        }
+      }
+      else{
+        setStoryIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+      }
     } else {
       // Right tap - Next story
       console.log("Right tap - Next story");
-      setStoryIndex((prevIndex) => Math.min(prevIndex + 1, users[userIndex].stories.length - 1));
+      
+      // Mark current story as complete
+      markStoryComplete(userIndex, storyIndex);
+      
+      if(storyIndex === users[userIndex]?.stories.length - 1) {
+        // If it's the last story, go to the next user
+        if(userIndex < users.length - 1) {
+          setUserIndex((prevIndex) => (prevIndex + 1));
+          setStoryIndex(0);
+        }
+        else{
+          closeModal();
+        }
+      }
+      else{
+        setStoryIndex((prevIndex) => Math.min(prevIndex + 1, users[userIndex]?.stories?.length - 1));
+      }
     }
   };
-//   progress[index]
+
+  // Get progress for current user safely
+  const getCurrentUserProgress = () => {
+    return userProgressMap[userIndex] || new Array(users[userIndex]?.stories?.length || 0).fill(0);
+  };
+
   return (
     <Modal animationType="fade" onRequestClose={closeModal} transparent={false} visible={isVisible} style={styles.modalContainer}>
         <View style={styles.progressBarContainer}>
-            {users[userIndex].stories.map((_, index) => (
+            {users[userIndex]?.stories?.map((_, index) => (
                 <View key={index} style={styles.progressWrapper}>
-                <View style={[styles.progressBar, { width: `${ progress[storyIndex]* 100}%` }]} />
+                <View 
+                  style={[
+                    styles.progressBar, 
+                    { width: `${getCurrentUserProgress()[index] || 0}%` }
+                  ]} 
+                />
                 </View>
             ))}
             </View>
         <View style={styles.userContainer}>
-            <View  style={{ flexDirection: "row", justifyContent: "flex-start", padding: 10 }}>  
+            <View style={{ flexDirection: "row", justifyContent: "flex-start", padding: 10 }}>  
                 <ThemedText>User Id:</ThemedText>
-                <ThemedText>{users[userIndex].user_id}</ThemedText>
+                <ThemedText style={{marginLeft:5}}>{users[userIndex]?.user_id}</ThemedText>
+                <ThemedText style={{marginLeft:5}}>{users[userIndex]?.stories[storyIndex]?.story_id}</ThemedText>
             </View>
             <TouchableOpacity style={styles.closeButton} onPress={()=>closeModal()}>
                 <AntDesign name="close" size={20} color="black" />
@@ -390,16 +384,13 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
       </View>
       <View style={styles.modalContainer} {...panResponder.panHandlers}>
         
-        {/* Progress Bar (Now updates continuously) */}
         <TouchableWithoutFeedback onPress={handleTap}>
         <View style={styles.video}>
         
-
-        {/* Fullscreen Video */}
         <Video
-          key={userIndex}
+          key={`${userIndex}-${storyIndex}`}
           ref={videoRef}
-          source={{ uri: users[userIndex].stories[storyIndex].story_url? users[userIndex].stories[storyIndex].story_url : "" }}
+          source={{ uri: users[userIndex]?.stories[storyIndex]?.story_url ? users[userIndex]?.stories[storyIndex].story_url : "" }}
           style={styles.video}
           useNativeControls={false}
           resizeMode={ResizeMode.COVER}
@@ -409,13 +400,9 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
         </View>
         </TouchableWithoutFeedback>
       </View>
-
-      {/* Close Button */}
-      
     </Modal>
   );
 };
-
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
