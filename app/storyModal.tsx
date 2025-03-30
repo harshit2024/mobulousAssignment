@@ -42,7 +42,7 @@ const users = [
       stories: [
         {
           story_id: 0,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743362057/Minato_Namikaze_Vs_Tobi___Royalty_AMV___minato_tobi_obito_t5xftm.mp4",
         },
         {
             story_id: 1,
@@ -65,7 +65,7 @@ const users = [
         },
         {
           story_id: 2,
-          story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743362057/Minato_Namikaze_Vs_Tobi___Royalty_AMV___minato_tobi_obito_t5xftm.mp4",
         },
       ],
     },
@@ -106,11 +106,11 @@ const users = [
         stories: [
           {
             story_id: 0,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743353811/videoplayback_2_yk9ggv.mp4",
           },
           {
               story_id: 1,
-              story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+              story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743354665/Itachi_s_death_vlskip.mp4",
           },
         ],
       },
@@ -121,19 +121,19 @@ const users = [
         stories: [
           {
             story_id: 0,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743362753/videoplayback_5_cozeet.mp4",
           },
           {
             story_id: 1,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743362826/videoplayback_6_uyyqrj.mp4",
           },
           {
             story_id: 2,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743362956/videoplayback_7_ioaurm.mp4",
           },
           {
             story_id: 3,
-            story_url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            story_url: "https://res.cloudinary.com/dpnb4eo1a/video/upload/v1743363061/videoplayback_8_ul9fky.mp4",
           },
         ],
       },
