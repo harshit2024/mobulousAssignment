@@ -320,6 +320,11 @@ const FullScreenVideoModal = ({ isVisible, closeModal, index }: FullScreenVideoM
             setStoryIndex(0);
          
         }
+        else if (gesture.dy > 50) {
+          
+          console.log("Swiped down - Closing story");
+          closeModal() ;
+        }
       },
     })
   ).current;
